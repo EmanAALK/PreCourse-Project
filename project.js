@@ -39,30 +39,14 @@ function characterCount(string, c) {
   return count;
 }
 //________________________________________________________________________________________________________________
-/**
- * differences(numbers):
- * - receives an array of numbers
- * - returns an array that has the difference in the values of the numbers array.
- * - see example below for clarification.
- *
- * e.g.
- * differences([1, 3, 7, 9, 12]) -> [2, 4, 2, 3]
- * 3 - 1 = 2
- * 7 - 3 = 4
- * 9 - 7 = 2
- * 12 - 9 = 3
- *
- * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
- */
 function differences(numbers) {
   let AD = [];
-  let d = 0;
-  for (let i = 0; i < numbers.length; i++) {
+  for (let i = 0; i < numbers.length - 1; i++) {
     AD.push(numbers[i + 1] - numbers[i]);
   }
+
   return AD;
 }
-
 //________________________________________________________________________________________________________________
 function largestIncrement(numbers) {
   let result = 0;
@@ -108,30 +92,16 @@ function isUpperCase(string) {
   }
 }
 //________________________________________________________________________________________________________________
-/**
- * elementInArray(numbers, x):
- * - receives an array of numbers, and a number `x`.
- * - returns true if `x` is found in the array, false otherwise
- *
- * e.g.
- * elementInArray([5, 6, 7], 6) -> true
- * elementInArray([5, 6, 7], 8) -> false
- *
- */
 function elementInArray(numbers, x) {
-  // Your code here
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
-
-/**
- * reverseString(string):
- * - receives a string
- * - returns the reverse of the string
- *
- * e.g.
- * reverseString("string") -> "gnirts"
- * reverseString("CODED") -> "DEDOC"
- *
- */
+//________________________________________________________________________________________________________________
 function reverseString(string) {
   let RS = "";
   for (let i = string.length - 1; i >= 0; i--) {
@@ -140,16 +110,15 @@ function reverseString(string) {
 
   return RS;
 }
-
 //_________________________________________________________________________________________________________________
 console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
 console.log(characterCount("Character Count is clever", "c"));
-//console.log(differences([11, 35, 52, 14, 56]));
+console.log(differences([11, 35, 52, 14, 56]));
 console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 // console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
 // console.log(abbreviate("miss", "Stephane"));
 console.log(isUpperCase("JCREW"));
-// console.log(elementInArray([5, 6, 7], 8));
+console.log(elementInArray([5, 8, 7], 8));
 console.log(reverseString("CODED"));
 
 module.exports = {
